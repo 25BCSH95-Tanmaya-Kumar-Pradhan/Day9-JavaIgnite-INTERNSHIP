@@ -16,26 +16,33 @@ import java.util.Scanner;
 
 public class First_non_repeating {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter the string:");
-			String string = sc.nextLine();
-			for(int i=0;i<string.length();i++)
-			{
-				for(int j=i+1;j<string.length();j++)
-				{
-					if(string.charAt(i)==string.charAt(j))
-					{
-						System.out.println("First repeating character: "+string.charAt(i));
-						return;
-					}
-				}
-			}
-			System.out.println("There were no repeating characters in the given string");
-			sc.close();
-		
-	}
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter the string:");
+        String string = sc.nextLine();
+
+        for(int i = 0; i < string.length(); i++)
+        {
+            int count = 0;
+
+            for(int j = 0; j < string.length(); j++)
+            {
+                if(string.charAt(i) == string.charAt(j))
+                {
+                    count++;
+                }
+            }
+
+            if(count == 1)
+            {
+                System.out.println("First non repeating character: " + string.charAt(i));
+                return;
+            }
+        }
+
+        System.out.println("All characters in the given string were repeating");
+        sc.close();
+    }
 }
