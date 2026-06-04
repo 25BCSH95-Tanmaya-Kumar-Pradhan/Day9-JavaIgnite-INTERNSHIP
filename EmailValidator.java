@@ -19,10 +19,23 @@ public class Email_validator {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the string:");
+		System.out.println("Enter the email:");
 		String string = sc.nextLine();
-		System.out.println("Upper case: "+string.toUpperCase());
-		System.out.println("Lower case: "+string.toLowerCase());
+		for(int i=0;i<string.length();i++)
+		{
+			if(string.charAt(i)=='@')
+			{
+				for(int j=0;j<string.length();j++)
+				{
+					if(string.charAt(j)=='.')
+					{
+						System.out.println("Valid email! Proceed!");
+						return;
+					}
+				}
+			}
+		}
+		System.out.println("Invalid email!");
 		sc.close();
 	}
 
